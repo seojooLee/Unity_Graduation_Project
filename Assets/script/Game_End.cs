@@ -1,25 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class Game_End : MonoBehaviour
 {
     public GameObject Panel;
- 
+    public Text txt;
+
     // Start is called before the first frame update
-
     private void OnTriggerEnter(Collider col)
-    {
-
-        if (col.gameObject.name == "Player")
-        {
-            Debug.Log("오브젝트와 충돌했습니다. ");
-             
+    {  
             if (Panel != null)
             {
-                Panel.SetActive(true); 
+                Panel.SetActive(true);
+
             }
-        }
+     
+
+        string name = PlayerPrefs.GetString("username");
+        txt.text = name + "님";
+
+         
     }
 
 
