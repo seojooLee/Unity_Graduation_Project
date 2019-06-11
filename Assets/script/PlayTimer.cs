@@ -1,14 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
+//https://answers.unity.com/questions/424856/time-based-score-system.html
 
 public class PlayTimer : MonoBehaviour
 {
     public int playtime = 0;//<< store later in playerprefs
     private int seconds = 0;
     private int minutes = 0;
-    private int hours = 0;
-    private int days = 0;
+    public GameObject Canvas;
+    public Text txt;
     private bool timeVisible = true;
 
 
@@ -27,22 +30,25 @@ public class PlayTimer : MonoBehaviour
             playtime += 1;
             seconds = (playtime % 60);
             minutes = (playtime / 60)%60;
-             
+            txt.text = minutes.ToString() + "분" + seconds.ToString() + "초";
+
         }
     }
 
-    void OnGUI()
-    {
-        if(GUI.Button(new Rect(100, 100, 40, 40), "ShowTime"))
-        {
-            if (timeVisible)
-                timeVisible = false;
-            else timeVisible = true;
-        }
+   //  public void OnGUI()
+  //  {
+        //if(GUI.Button(new Rect(100, 100, 40, 40), "ShowTime"))
+        //{
+        //    if (timeVisible)
+        //        timeVisible = false;
+        //    else timeVisible = true;
+        //}
 
-        if(timeVisible)
-        GUI.Label(new Rect(50, 50, 720, 58), "Playtime ="+minutes.ToString() + "분"+seconds.ToString() + "초"); 
-    }
+       // if(timeVisible)
+
+        // GUI.Label(new Rect(50, 50, 720, 58), "Playtime ="+minutes.ToString() + "분"+seconds.ToString() + "초");
+
+   // }
 
     void SetData()
     {
@@ -51,10 +57,20 @@ public class PlayTimer : MonoBehaviour
          
     } 
    
+    void Awake()
+    {
+        DontDestroyOnLoad(transform.gameObject);
+        if (FindObjectsOfType(GetType()).Length > 1)
+        {
+            Destroy(gameObject);
+        }
+    }
+
 
     // Update is called once per frame
     void Update()
     {
         
     }
+   
 }
