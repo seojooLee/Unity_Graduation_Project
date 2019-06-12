@@ -1,36 +1,46 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 
-public class Game_End : MonoBehaviour
+public class Game_End : PlayerScript
 {
-    public GameObject uiObject;
-    public Text tex1;
+    //    public GameObject uiObject;
+    //    public Text tex1;
 
-void Start()
+    PlayTimer play = new PlayTimer();
+    void Start()
     {
-     //   uiObject.SetActive(false);
+        //   uiObject.SetActive(false);
     }
-void OnTriggerEnter(Collider player)
+    public void OnTriggerEnter(Collider player)
     {
-        if(player.gameObject.tag == "Player")
+        if (player.gameObject.tag == "Player")
         {
-            uiObject.SetActive(true);
-            //PlayerPrefs.SetString("username", inputField.text);
+            //uiObject.SetActive(true);
+            ////PlayerPrefs.SetString("username", inputField.text);
 
-           // string text = (string)PlayerPrefs("username");
-            string username = PlayerPrefs.GetString("username");
-            tex1.text = username + "님";
- 
+            //// string text = (string)PlayerPrefs("username");
+            //Debug.Log(PlayerPrefs.GetString("username"));
+              PlayTimer.stopTimer();
+             PlayerPrefs.SetInt("time", play.seconds); 
+
         }
     }
- 
 
-    // Update is called once per frame
-    void Update()
+    internal bool OnTriggerEnter()
     {
-        
+        throw new NotImplementedException();
     }
+
+
+    //    // Update is called once per frame
+    //    void Update()
+    //    {
+
+    //    }
+
+
 }

@@ -5,29 +5,19 @@ using UnityEngine.UI;
 
 public class Input_2 : MonoBehaviour
 {
-    public InputField inputField;
-    //public Text text;
+    public InputField inputName;
 
-
-    // Start is called before the first frame update
-    void Start()
+    public void Save()
     {
+        PlayerPrefs.SetString("Name", inputName.text);
 
     }
-
-
-    public void SaveUserName(string username)
+    public void Load()
     {
-      //  text.text = inputField.text + "님";
-        PlayerPrefs.SetString("username", inputField.text);
-
-        Debug.Log("버튼 실행");
-
+        if(PlayerPrefs.HasKey("Name"))
+        {
+            inputName.text = PlayerPrefs.GetString("Name");
+        }
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }
