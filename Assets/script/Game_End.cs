@@ -6,30 +6,27 @@ using UnityEngine.UI;
 
 public class Game_End : MonoBehaviour
 {
-    public GameObject Panel;
-    public Text txt;
+    public GameObject uiObject;
+    public Text tex1;
 
-    // Start is called before the first frame update
-    private void OnTriggerEnter(Collider col)
-    {  
-            if (Panel != null)
-            {
-                Panel.SetActive(true);
-
-            }
-     
-
-        string name = PlayerPrefs.GetString("username");
-        txt.text = name + "님";
-
-         
-    }
-
-
-    void Start()
+void Start()
     {
-        
+     //   uiObject.SetActive(false);
     }
+void OnTriggerEnter(Collider player)
+    {
+        if(player.gameObject.tag == "Player")
+        {
+            uiObject.SetActive(true);
+            //PlayerPrefs.SetString("username", inputField.text);
+
+           // string text = (string)PlayerPrefs("username");
+            string username = PlayerPrefs.GetString("username");
+            tex1.text = username + "님";
+ 
+        }
+    }
+ 
 
     // Update is called once per frame
     void Update()
