@@ -13,7 +13,7 @@ public class PlayTimer : MonoBehaviour
     public GameObject Canvas;
     public Text txt;
     private bool timeVisible = true;
-
+    public static bool real_time = true; 
 
 
     // Start is called before the first frame update
@@ -24,15 +24,33 @@ public class PlayTimer : MonoBehaviour
 
     private IEnumerator Playtimer()
     {
-        while (true)
+        if(real_time == true)
         {
-            yield return new WaitForSeconds(1);
-            playtime += 1;
-            seconds = (playtime % 60);
-            minutes = (playtime / 60) % 60;
-            txt.text = minutes.ToString() + "분" + seconds.ToString() + "초";
+
+
+            while (real_time)
+            {
+                yield return new WaitForSeconds(1);
+                playtime += 1;
+                seconds = (playtime % 60);
+                minutes = (playtime / 60) % 60;
+                txt.text = minutes.ToString() + "분" + seconds.ToString() + "초";
+
+            }
 
         }
+        else
+        {
+            Debug.Log("실행합니다. ");
+            playtime = 0;
+            Debug.Log("seconds : " + seconds);
+            Debug.Log("minutes : "+ minutes);
+
+            PlayerPrefs.SetString("min", minutes.ToString());
+            PlayerPrefs.SetString("sec", seconds.ToString());
+        }
+         
+        
     }
 
     //  public void OnGUI()

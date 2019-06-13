@@ -10,7 +10,7 @@ public class PlayerScript : MonoBehaviour
     public InputField nameText;
     public Text scoreText;
     private System.Random random = new System.Random();
-    public static int playerScore;
+    public static string playerScore;
     public static string playerName;
     User user = new User();
     //txt.text = PlayerPrefs.GetString("Name")+"님";
@@ -20,7 +20,7 @@ public class PlayerScript : MonoBehaviour
     void Start()
     {
          // playerScore = random.Next(0, 101);
-        playerScore = PlayerPrefs.GetInt("time"); 
+        playerScore = PlayerPrefs.GetString("sec"); 
 
         //scoreText.text = "score : "+playerScore;
 
