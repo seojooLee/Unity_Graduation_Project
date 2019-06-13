@@ -42,7 +42,7 @@ public class WebCam : MonoBehaviour
 
         }  
     }
- private string _SavePath =@"C:\Users\potential\Pictures\";
+ private string _SavePath =@"C:\Users\";
     int _CaptureCounter = 0;
 
    public void TakeSnapshot()

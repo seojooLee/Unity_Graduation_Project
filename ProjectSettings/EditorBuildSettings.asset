@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/04.2Dthird.unity
     guid: ab8ef5f57c6f04e42880b8b05e8278f8
+  - enabled: 1
+    path: Assets/Scenes/WebCaM.unity
+    guid: 8a0e2063b2b7b82458d9f24f60a4e79d
   m_configObjects: {}

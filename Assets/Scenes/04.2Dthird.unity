@@ -685,7 +685,7 @@ MonoBehaviour:
   gameOvertext: {fileID: 433713201}
   gameOver: 0
   scrollSpeed: -1.5
-  player: {fileID: 0}
+  player: {fileID: 1432171264}
 --- !u!4 &1244831761
 Transform:
   m_ObjectHideFlags: 0
@@ -700,6 +700,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1432171264 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3261896514793215725, guid: 241ad56969e80054daa4c6613dd4c270,
+    type: 3}
+  m_PrefabInstance: {fileID: 3261896515380435739}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1862862023
 GameObject:
   m_ObjectHideFlags: 0
@@ -1899,7 +1905,7 @@ PrefabInstance:
     - target: {fileID: 8074140933117916906, guid: 96d8981d2184b244d9d649c37cba3bc2,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6009933826070713707, guid: 96d8981d2184b244d9d649c37cba3bc2,
         type: 3}
@@ -1966,6 +1972,11 @@ PrefabInstance:
       propertyPath: m_SortingLayer
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 8074140933117916909, guid: 96d8981d2184b244d9d649c37cba3bc2,
+        type: 3}
+      propertyPath: gameControl
+      value: 
+      objectReference: {fileID: 1244831760}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96d8981d2184b244d9d649c37cba3bc2, type: 3}
 --- !u!1001 &6437712394066714595
