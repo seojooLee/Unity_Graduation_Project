@@ -11,8 +11,7 @@ public class Game_End : PlayerScript
         public GameObject uiObject;
         public static string sec;
     public static string min;
-    public Text t1;
-    public Text t2 ;
+ 
     //    public Text tex1;
 
     PlayTimer play = new PlayTimer();
@@ -24,16 +23,19 @@ public class Game_End : PlayerScript
     {
         if (player.gameObject.tag == "Player")
         {
-             uiObject.SetActive(true);
+
+            uiObject.SetActive(true);
 
             PlayTimer.real_time = false;
 
             sec = PlayerPrefs.GetString("sec");
-            min = PlayerPrefs.GetString("min");
-             
+            min = PlayerPrefs.GetString("min"); 
+            PlayerScript.Onsubmit();
 
-            ////PlayerPrefs.SetString("username", inputField.text); 
+            OngetScore();
  
+            ////PlayerPrefs.SetString("username", inputField.text); 
+
             //// string text = (string)PlayerPrefs("username");
             //Debug.Log(PlayerPrefs.GetString("username"));
             // PlayTimer.stopTimer();

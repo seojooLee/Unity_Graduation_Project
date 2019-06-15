@@ -7,10 +7,10 @@ using UnityEngine.UI;
 
 public class PlayerScript : MonoBehaviour
 {
-    public InputField nameText;
+    public Text nameText;
     public Text scoreText;
     private System.Random random = new System.Random();
-    public static string playerScore;
+    public static int playerScore;
     public static string playerName;
     User user = new User();
     //txt.text = PlayerPrefs.GetString("Name")+"님";
@@ -19,30 +19,32 @@ public class PlayerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-         // playerScore = random.Next(0, 101);
-        playerScore = PlayerPrefs.GetString("sec"); 
-
-        //scoreText.text = "score : "+playerScore;
-
+        playerScore = PlayerPrefs.GetInt("sec");
+         scoreText.text = playerScore+"점";
+ 
     }
-    public void Onsubmit()
+    public static void Onsubmit()
     {
        //playerName = nameText.text;
         playerName = PlayerPrefs.GetString("Name");
+
         PostToDataBase();
     }
 
     public void OngetScore()
     {
+
         // scoreText.text = RetrieveFromDataBase().userScore.ToString();
         RetrieveFromDataBase();
     }
  
     private void UpdateScore()
     {
-        scoreText.text = "Score Text : " + user.userScore;
+         nameText.text = "" + user.userName; 
+        scoreText.text = "" + user.userScore+"점";
+
     }
-    private void PostToDataBase()
+    public static void PostToDataBase()
     {
         User user = new User();
         RestClient.Put("https://wizardsofoz-6659d.firebaseio.com/" + playerName + ".json", user);
@@ -50,7 +52,8 @@ public class PlayerScript : MonoBehaviour
 
     private void RetrieveFromDataBase()
     {
-        RestClient.Get<User>("https://wizardsofoz-6659d.firebaseio.com/" + nameText + ".json").Then(response =>
+ 
+        RestClient.Get<User>("https://wizardsofoz-6659d.firebaseio.com/" + playerName + ".json").Then(response =>
         {
             user = response;
             UpdateScore();

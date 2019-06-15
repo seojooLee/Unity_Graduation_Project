@@ -6,7 +6,7 @@ using UnityEngine;
 public class User
 {
     public string userName;
-    public string userScore;
+    public int userScore;
 
     public User()
     {

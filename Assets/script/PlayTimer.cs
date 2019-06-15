@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class PlayTimer : MonoBehaviour
 {
-    public int playtime = 0;//<< store later in playerprefs
+    public static int playtime = 0;//<< store later in playerprefs
     public static int seconds = 0;
     public static int minutes = 0;
     public GameObject Canvas;
@@ -26,6 +26,7 @@ public class PlayTimer : MonoBehaviour
     {
         if(real_time == true)
         {
+            Debug.Log("현재 시간 : " +playtime);
 
 
             while (real_time)
@@ -39,15 +40,18 @@ public class PlayTimer : MonoBehaviour
             }
 
         }
-        else
+        if (real_time == false)
         {
+            playtime = 0;
+            Debug.Log("sec" + seconds);
+            
             Debug.Log("실행합니다. ");
             playtime = 0;
             Debug.Log("seconds : " + seconds);
             Debug.Log("minutes : "+ minutes);
 
-            PlayerPrefs.SetString("min", minutes.ToString());
-            PlayerPrefs.SetString("sec", seconds.ToString());
+            PlayerPrefs.SetInt("min", minutes);
+            PlayerPrefs.SetInt("sec", seconds);
         }
          
         

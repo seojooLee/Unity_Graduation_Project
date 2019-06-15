@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+#if UNITY_EDITOR  
 using UnityEditor;
 using Models;
 using Proyecto26;
@@ -103,3 +104,4 @@ public class MainScript : MonoBehaviour {
 		}
 	}
 }
+#endif
