@@ -12,7 +12,7 @@ public class PlayerScript : MonoBehaviour
     private System.Random random = new System.Random();
     public static int playerScore;
     public static string playerName;
-    User user = new User();
+    static User user = new User();
     //txt.text = PlayerPrefs.GetString("Name")+"님";
 
 
@@ -42,6 +42,15 @@ public class PlayerScript : MonoBehaviour
     {
          nameText.text = "" + user.userName; 
         scoreText.text = "" + user.userScore+"점";
+    }
+    public static  void Displayscore()
+    {
+        
+        Debug.Log("Displayscore() 실행합니다. ");
+        ScoreManager.seoseo = user.userName;
+        ScoreManager.score_T = user.userScore;
+         //score.SetScore(user.userName, "kills", user.userScore);
+
 
     }
     public static void PostToDataBase()
@@ -57,6 +66,7 @@ public class PlayerScript : MonoBehaviour
         {
             user = response;
             UpdateScore();
+            Displayscore();
         });
  
     }
