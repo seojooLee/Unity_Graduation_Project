@@ -12,7 +12,8 @@ public class PlayerScript : MonoBehaviour
     private System.Random random = new System.Random();
     public static int playerScore;
     public static string playerName;
-    static User user = new User();
+    public static User user = new User();
+    public static ScoreController sc = new ScoreController();
     //txt.text = PlayerPrefs.GetString("Name")+"님";
 
 
@@ -47,10 +48,15 @@ public class PlayerScript : MonoBehaviour
     {
         
         Debug.Log("Displayscore() 실행합니다. ");
-        ScoreManager.seoseo = user.userName;
-        ScoreManager.score_T = user.userScore;
-         //score.SetScore(user.userName, "kills", user.userScore);
+        //sc.DEBUG_INITIAL_SETUP(user.userName, user.userScore);
+        //ScoreController.seoseo = "이서주 ";
+        //ScoreController.score_T = 100;
 
+        ScoreController.seoseo = user.userName;
+        ScoreController.score_T = user.userScore;
+
+
+        //score.SetScore(user.userName, "kills", user.userScore); 
 
     }
     public static void PostToDataBase()

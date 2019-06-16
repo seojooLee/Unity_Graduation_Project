@@ -19,16 +19,16 @@ public class PlayTimer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        real_time = true;
         StartCoroutine("Playtimer");
     }
 
-    private IEnumerator Playtimer()
+    public IEnumerator Playtimer()
     {
         if(real_time == true)
         {
-            Debug.Log("현재 시간 : " +playtime);
-
-
+            
+            Debug.Log("현재 시간 : " +playtime + "실행합니다.********************"); 
             while (real_time)
             {
                 yield return new WaitForSeconds(1);
@@ -59,7 +59,7 @@ public class PlayTimer : MonoBehaviour
 
     //  public void OnGUI()
     //  {
-    //if(GUI.Button(new Rect(100, 100, 40, 40), "ShowTime"))
+    //if(GUI.Button(new Rect(100, 100, 40, 40), "ShowTime")) 
     //{
     //    if (timeVisible)
     //        timeVisible = false;

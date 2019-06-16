@@ -6,13 +6,13 @@ public class PlayerScoreList : MonoBehaviour {
 
 	public GameObject playerScoreEntryPrefab;
 
-	ScoreManager scoreManager;
+    ScoreController scoreManager;
 
 	int lastChangeCounter;
 
 	// Use this for initialization
 	void Start () {
-		scoreManager = GameObject.FindObjectOfType<ScoreManager>();
+		scoreManager = GameObject.FindObjectOfType<ScoreController>();
 
 		lastChangeCounter = scoreManager.GetChangeCounter();
 	}
