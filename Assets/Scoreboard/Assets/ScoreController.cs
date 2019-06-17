@@ -15,6 +15,7 @@ public class ScoreController : MonoBehaviour
 
     public static string seoseo;
     public static int score_T;
+    public static int Min;
     int changeCounter = 0;
 
     void Start()
@@ -128,7 +129,7 @@ public class ScoreController : MonoBehaviour
     {
         Debug.Log(" DEBUG_INITIAL_SETUP : 기본 설정 창 실행 ");
  
-        SetScore(seoseo, "assists", score_T);
+        SetScore(seoseo, "kills", score_T);
 
         //SetScore(name, "kills", score_seo);
 

@@ -13,7 +13,7 @@ public class PlayTimer : MonoBehaviour
     public GameObject Canvas;
     public Text txt;
     private bool timeVisible = true;
-    public static bool real_time = true; 
+    public static bool real_time = true;
 
 
     // Start is called before the first frame update
@@ -33,15 +33,23 @@ public class PlayTimer : MonoBehaviour
             {
                 yield return new WaitForSeconds(1);
                 playtime += 1;
-                seconds = (playtime % 60);
-                minutes = (playtime / 60) % 60;
-                txt.text = minutes.ToString() + "분" + seconds.ToString() + "초";
+                //seconds = playtime;
+                  seconds = (playtime % 60);
+                    minutes = (playtime / 60) % 60;
+                 txt.text = minutes.ToString() + "분" + seconds.ToString() + "초";
+                //txt.text = seconds.ToString() + "초";
+                // Canvas.GetComponent<Text>().text = seconds.ToString() + "초";
+                txt.color = Color.blue;
+                //Canvas.GetComponent<Text>().color = Color.red;
+
 
             }
 
         }
         if (real_time == false)
         {
+            //txt.text = minutes.ToString() + "분" + seconds.ToString() + "초";
+
             playtime = 0;
             Debug.Log("sec" + seconds);
             
@@ -52,9 +60,11 @@ public class PlayTimer : MonoBehaviour
 
             PlayerPrefs.SetInt("min", minutes);
             PlayerPrefs.SetInt("sec", seconds);
+            Destroy(gameObject); 
+
         }
-         
-        
+
+
     }
 
     //  public void OnGUI()

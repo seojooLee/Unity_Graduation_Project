@@ -4,13 +4,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 
 public class Game_End : PlayerScript
 {
         public GameObject uiObject;
-        public static string sec;
-    public static string min;
+        public static int  sec;
+    public static int  min;
+    public TextMeshPro tmpScore;
  
     //    public Text tex1;
 
@@ -23,13 +25,17 @@ public class Game_End : PlayerScript
     {
         if (player.gameObject.tag == "Player")
         {
-
+          
             uiObject.SetActive(true);
 
             PlayTimer.real_time = false;
 
-            sec = PlayerPrefs.GetString("sec");
-            min = PlayerPrefs.GetString("min"); 
+
+            sec = PlayerPrefs.GetInt("sec");
+            min = PlayerPrefs.GetInt("min");
+            tmpScore.text = min + ":" + sec;
+
+
             PlayerScript.Onsubmit();
 
             OngetScore();

@@ -9,7 +9,8 @@ public class SEOJOO : TSceneController
      
      private TSceneController sceneController;
     public Transform player;
-    public Image imgLife1, imgLife2 ,imgLife3;     
+    public Image imgLife1, imgLife2 ,imgLife3;    
+    public bool first_time;
     // Start is called before the first frame update
 
     void Start()
@@ -17,6 +18,23 @@ public class SEOJOO : TSceneController
         imgLife1.enabled = false;
         imgLife2.enabled = false;
         imgLife3.enabled = false;
+
+        if(prevScene == "first_point")
+        {
+
+            PlayTimer play = new PlayTimer();
+
+     
+            player.position = new Vector3(46.85f, 4.381f, -29.05f);
+
+            PlayerPrefs.SetFloat("x", transform.position.x);
+            PlayerPrefs.SetFloat("y", transform.position.y);
+            PlayerPrefs.SetFloat("z", transform.position.z);
+            player.position = new Vector3(46.85f, 4.381f, -29.05f);
+
+
+        }
+
 
         if (prevScene == "02.2Dfirst")
             {

@@ -20,8 +20,8 @@ public class PlayerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerScore = PlayerPrefs.GetInt("sec");
-         scoreText.text = playerScore+"점";
+        playerScore = PlayerPrefs.GetInt("sec"); 
+        // scoreText.text = playerScore+"점";
  
     }
     public static void Onsubmit()
